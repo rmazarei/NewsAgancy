@@ -13,22 +13,20 @@ class RoleAndAdminSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create roles
         $roles = ['admin', 'moderator', 'user'];
+
         foreach ($roles as $role) {
             Role::firstOrCreate(['name' => $role]);
         }
 
-        // Create default admin user
         $admin = User::firstOrCreate(
-            ['email' => 'rouhollah@gmail.com'],
+            ['email' => 'admin@example.com'],
             [
-                'name' => 'Default Admin',
-                'password' => bcrypt('ChangeThis'), // Change this to a secure password
+                'name' => 'مدیر اصلی',
+                'password' => bcrypt('password'),
             ]
         );
 
-        // Assign admin role to the default user
         $admin->assignRole('admin');
     }
 }

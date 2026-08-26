@@ -26,8 +26,8 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             IranCitiesSeeder::class,
+            CategorySeeder::class,
             RoleAndAdminSeeder::class,
-            // SiteInfoSeeder::class,
         ]);
     }
 }
