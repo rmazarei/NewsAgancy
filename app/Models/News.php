@@ -20,6 +20,7 @@ class News extends Model implements HasMedia
         'slug',
         'content',
         'published_at',
+        'featured',
     ];
 
     protected $casts = [

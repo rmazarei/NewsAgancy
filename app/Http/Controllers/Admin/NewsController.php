@@ -42,9 +42,12 @@ class NewsController extends Controller
     {
         $data = $request->validated();
         $data['user_id'] = auth()->id();
+        $data['featured'] = $request->boolean('featured', false);
         $news = $this->newsRepository->create($data);
 
         $this->handleMedia($news, $request);
+
+        // TODO: use cache
 
         return redirect()->route('admin.news.index')->with('success', 'خبر با موفقیت ثبت شد.');
     }
@@ -63,6 +66,7 @@ class NewsController extends Controller
     public function update(UpdateNewsRequest $request, News $news)
     {
         $data = $request->validated();
+        $data['featured'] = $request->boolean('featured', false);
         $this->newsRepository->update($news->id, $data);
 
         if ($request->hasFile('main_image')) {

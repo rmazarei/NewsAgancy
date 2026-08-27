@@ -2,6 +2,7 @@
 import RichTextEditor from '@/components/RichTextEditor.vue';
 import { Head, Link, useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import { Checkbox } from '@/components/ui/checkbox/index.js';
 
 const props = defineProps({
     categories: Array,
@@ -14,6 +15,7 @@ const form = useForm({
     published_at: '',
     categories: [],
     cities: [],
+    featured: false,
     main_image: null,
     gallery: [],
 });
@@ -62,6 +64,19 @@ function submit() {
                 <div class="space-y-2">
                     <label class="text-sm font-medium text-slate-700">تاریخ انتشار</label>
                     <input v-model="form.published_at" type="datetime-local" class="w-full rounded-md border border-slate-300 px-3 py-2" />
+
+
+                    <div class="mb-4">
+                        <label class="flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                v-model="form.featured"
+                                class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
+                            />
+                            <span class="text-sm font-medium text-gray-700">خبر ویژه</span>
+                        </label>
+                    </div>
+
                 </div>
 
                 <div class="space-y-2">

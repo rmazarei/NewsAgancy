@@ -17,6 +17,7 @@ const form = useForm({
     cities: props.news.cities ? props.news.cities.map((item) => item.id) : [],
     main_image: null,
     gallery: [],
+    featured: Boolean(props.news.featured),
 });
 
 const mainPreview = ref(props.news.main_image || '');
@@ -63,6 +64,18 @@ function submit() {
                 <div class="space-y-2">
                     <label class="text-sm font-medium text-slate-700">تاریخ انتشار</label>
                     <input v-model="form.published_at" type="datetime-local" class="w-full rounded-md border border-slate-300 px-3 py-2" />
+
+
+                    <div class="mb-4">
+                        <label class="flex items-center gap-2">
+                            <input
+                                type="checkbox"
+                                v-model="form.featured"
+                                class="rounded border-gray-300 text-blue-600 shadow-sm focus:ring-blue-500"
+                            />
+                            <span class="text-sm font-medium text-gray-700">خبر ویژه</span>
+                        </label>
+                    </div>
                 </div>
 
                 <div class="space-y-2">

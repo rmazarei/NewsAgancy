@@ -50,7 +50,9 @@ function formatDate(value) {
                 <div class="space-y-4 p-5">
                     <div class="flex flex-wrap gap-2">
                         <span v-for="category in item.categories" :key="category.id" class="rounded-full bg-slate-100 px-2 py-1 text-xs text-slate-700">
-                            {{ category.title }}
+                            <Link :href="`/?category=${category.id}`">
+                                {{ category.title }}
+                            </Link>
                         </span>
                     </div>
 

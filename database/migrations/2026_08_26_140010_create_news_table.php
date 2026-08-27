@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->longText('content');
+            $table->boolean('featured')->default(false);
             $table->timestamp('published_at')->nullable();
             $table->timestamps();
             $table->softDeletes();

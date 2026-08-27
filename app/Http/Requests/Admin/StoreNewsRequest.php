@@ -36,6 +36,7 @@ class StoreNewsRequest extends FormRequest
             'main_image' => ['sometimes', 'image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
             'gallery' => ['sometimes', 'array'],
             'gallery.*' => ['image', 'mimes:jpeg,png,jpg,gif', 'max:2048'],
+            'featured' => 'sometimes|boolean', // <-- افزودن
         ];
     }
 }

@@ -28,7 +28,8 @@ const navItems = [
                     </Link>
                 </div>
 
-                <div v-if="hasAdminRole" class="hidden items-center gap-2 md:flex">
+<!--                <div v-if="hasAdminRole" class="hidden items-center gap-2 md:flex">-->
+                <div class="hidden items-center gap-2 md:flex">
                     <Link
                         v-for="item in navItems"
                         :key="item.href"
